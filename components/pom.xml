@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>jlink</artifactId>
+        <groupId>com.jlink</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>components</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>1.12.5</module>
+        <module>oss-storage</module>
+        <module>nebula-graph</module>
+        <module>fulltext-search</module>
+        <module>security-jasypt</module>
+        <module>message-queue</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <maven-shade-plugin.version>2.3</maven-shade-plugin.version>
+    </properties>
+</project>

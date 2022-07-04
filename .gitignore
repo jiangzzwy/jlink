@@ -1,6 +1,8 @@
 /.idea/
 *.class
 *.log
+logs
+target
 test
 .idea
 .idea/codeStyles

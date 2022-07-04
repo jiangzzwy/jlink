@@ -6,11 +6,119 @@
 
     <groupId>com.jlink</groupId>
     <artifactId>jlink</artifactId>
+    <packaging>pom</packaging>
     <version>1.0</version>
+    <modules>
+        <module>components</module>
+        <module>shims</module>
+        <module>webapp</module>
+        <module>service</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-    </properties>
 
+        <springboot.version>2.2.5.RELEASE</springboot.version>
+        <apollo.version>1.9.2</apollo.version>
+        <lombok.version>1.18.22</lombok.version>
+        <mapstruct.version>1.5.1.Final</mapstruct.version>
+        <knife4j.version>2.0.7</knife4j.version>
+        <junit.version>4.13.2</junit.version>
+
+        <awsjavasdk.version>1.11.490</awsjavasdk.version>
+        <commons-langs.version>3.12.0</commons-langs.version>
+
+        <nebuala.version>3.0.0</nebuala.version>
+        <elasticsearch.version>6.6.2</elasticsearch.version>
+        <kafka.version>2.2.0</kafka.version>
+
+        <maven-jar-plugin.version>3.1.0</maven-jar-plugin.version>
+        <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
+        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+        <maven-enforcer-plugin.version>1.4.1</maven-enforcer-plugin.version>
+
+        <guava.version>23.0</guava.version>
+    </properties>
+    <dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-parent</artifactId>
+                    <version>${springboot.version}</version>
+                    <type>pom</type>
+                    <scope>import</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.github.xiaoymin</groupId>
+                    <artifactId>knife4j-spring-boot-starter</artifactId>
+                    <version>${knife4j.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.github.xiaoymin</groupId>
+                    <artifactId>knife4j-spring-boot-starter</artifactId>
+                    <version>2.0.7</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.ctrip.framework.apollo</groupId>
+                    <artifactId>apollo-client</artifactId>
+                    <version>${apollo.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.mapstruct</groupId>
+                    <artifactId>mapstruct</artifactId>
+                    <version>${mapstruct.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                    <version>${lombok.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                    <version>${guava.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>com.amazonaws</groupId>
+                    <artifactId>aws-java-sdk-s3</artifactId>
+                    <version>${awsjavasdk.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-lang3</artifactId>
+                    <version>${commons-langs.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>com.vesoft</groupId>
+                    <artifactId>client</artifactId>
+                    <version>${nebuala.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.kafka</groupId>
+                    <artifactId>kafka-clients</artifactId>
+                    <version>${kafka.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.elasticsearch</groupId>
+                    <artifactId>elasticsearch</artifactId>
+                    <version>${elasticsearch.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.elasticsearch.client</groupId>
+                    <artifactId>elasticsearch-rest-client</artifactId>
+                    <version>${elasticsearch.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.elasticsearch.client</groupId>
+                    <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                    <version>${elasticsearch.version}</version>
+                </dependency>
+            </dependencies>
+    </dependencyManagement>
 </project>
