@@ -9,11 +9,7 @@ if [[ "$JAVA_VERSION" < "1.7" ]]; then
   echo "Ops, Java version too low."
   exit 1
 fi
-MAIN_CLASS=${mainClass}
-UP_FLAG=${healthFlag}
-
-MAX_WAIT=1000
-WAIT=0
+MAIN_CLASS=com.jlink.JLinkApplication
 
 SERVER_NAME=$(echo $MAIN_CLASS | awk '{split($0,a,".");print a[length(a)]}')
 PID_EXIST=$(ps -ef | grep $MAIN_CLASS | awk '!/grep/{print $2}')
@@ -62,10 +58,6 @@ if [ ! $PID_EXIST ]; then
       sleep 1s
    done
 
-  $JAVA_BIN $JVM_OPTS -DLOG_PATH=$LOG_PATH -Dapp.id=${apollo.id} -cp $CLASSPATH $MAIN_CLASS >/dev/null 2>&1 &
-  PID=$(ps -ef | grep $MAIN_CLASS | awk '!/grep/{print $2}')
-  TODAY=$(date +%Y-%m-%d)
-  HOUR=$(date +%H)
-  echo
+  $JAVA_BIN $JVM_OPTS -DLOG_PATH=$LOG_PATH -cp $CLASSPATH $MAIN_CLASS >/dev/null 2>&1 &
   echo -n "服务 $SERVER_NAME 正在启动  "
 fi
